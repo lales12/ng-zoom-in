@@ -8,7 +8,7 @@
   "description": "Zoom in directive for Angular",
   "main": "dist/ng-zoom-in.js",
   "keywords": [
-    "jquery"
+    "jquery",
     "angular",
     "directive"
   ],
