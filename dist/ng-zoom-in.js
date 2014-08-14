@@ -81,7 +81,7 @@
                     }
 
                     hide = function () {
-                        $('.pages-frame').css('margin-top', 80);
+                        $('.pages-frame').css('top', 80);
                         $scope.widgetActive = false;
                         $element.removeClass('active');
                         $scope.active = false;
