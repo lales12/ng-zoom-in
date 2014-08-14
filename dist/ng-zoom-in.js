@@ -17,6 +17,7 @@
                 link: function ($scope, $element, $attrs) {
                     var parent = $element.parent(),
                         startSign = false,
+                        widgetActive = false,
                         $canvas = null,
                         oldStrokeEnd = null,
                         oldAddPoint  = null,
@@ -80,6 +81,8 @@
                     }
 
                     hide = function () {
+                        $('.pages-frame').css('margin-top', 80);
+                        $scope.widgetActive = false;
                         $element.removeClass('active');
                         $scope.active = false;
                         $scope.model.showCalendar = false;
@@ -151,7 +154,9 @@
                         $element.css('font-size', $element.width()*0.1);
 
                         $element.click(function (event) {
-                            if (!$element.hasClass('active')) {
+                            if (!$scope.widgetActive) {
+                                $scope.widgetActive = true;
+                                $('.pages-frame').css('top','0');
                                 //Preventdefaul if is checkbox
                                 if ($scope.type === '3') {
                                     event.preventDefault();
@@ -169,7 +174,7 @@
                         })
 
                         $(window).on('resize', function () {
-                            if ($scope.type == 5 && $scope.active === true) {
+                            if ($scope.type == 5) {
                                 $scope.fnClear();
                                 resizeCanvas()
                             } else if ($scope.type == 1 || $scope.type == 6) {
@@ -184,3 +189,4 @@
     )
 
 })()
+
